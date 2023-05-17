@@ -45,6 +45,8 @@
 
 *For this tutorial we'll be targeting Linux, due to my personal familiarity over chromeOS*
 - `Ubuntu 22.04 Cinnamon to be precise.`
+- https://ubuntucinnamon.org/ 
+![cinnamon banner](https://github.com/qkNorris/virus-free-grandma/blob/a90227aabd98cded49d066509181fd83f0648179/Pasted%20image%2020230515174731.png)
 
 <!-- Prerequisites -->
 ## Prerequisites
@@ -57,8 +59,6 @@ Heres my current setup, in case you want to mirror it. I'll provide alternatives
 <!-- GETTING STARTED -->
 ## Getting Started
 
-https://ubuntucinnamon.org/ 
-![cinnamon banner](https://github.com/qkNorris/virus-free-grandma/blob/a90227aabd98cded49d066509181fd83f0648179/Pasted%20image%2020230515174731.png)
 
 <!-- Creating an ubuntu flash drive -->
 ### Creating an ubuntu flash drive
