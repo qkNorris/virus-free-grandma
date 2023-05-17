@@ -58,25 +58,26 @@ Heres my current setup, in case you want to mirror it. I'll provide alternatives
 ## Getting Started
 
 https://ubuntucinnamon.org/ 
-![alt text](https://github.com/qkNorris/virus-free-grandma/blob/a90227aabd98cded49d066509181fd83f0648179/Pasted%20image%2020230515174731.png)
+![cinnamon banner](https://github.com/qkNorris/virus-free-grandma/blob/a90227aabd98cded49d066509181fd83f0648179/Pasted%20image%2020230515174731.png)
 
-#### Creating an ubuntu flash drive
+<!-- Creating an ubuntu flash drive -->
+### Creating an ubuntu flash drive
 
-- On an existing windows computer, navigate to ubuntucinnamon.org
-- click download. The version at the time of writing is 22.04.2 LTS. 
+1.  On an existing windows computer, `navigate to` [ubuntucinnamon.org](https://ubuntucinnamon.org)
+2. `click download`. The version at the time of writing is 22.04.2 LTS. 
 	- LTS versions are always reccommended for Ubuntu. 
 
-- while that file is downloading, go ahead and grab a flash drive and plug it in. Your flash drive will need to be `8 GB` or larger. Files on flash drive will be wiped, so make sure theres nothing already on it. 
+3. while that file is downloading, go ahead and `grab a flash drive and plug it in`. Your flash drive will need to be `8 GB` or larger. Files on flash drive will be wiped, so *make sure theres nothing already on it.* 
 
-- Once the file is done downloading, we'll use Rufus to burn the ubuntu iso to the flash drive. 
-	- Go to [Rufus - Create bootable USB drives the easy way](https://rufus.ie/en/) 
+4. Once the file is done downloading, we'll use `Rufus` to burn the ubuntu iso to the flash drive. 
+	- `Navigate to` [Rufus - Create bootable USB drives the easy way](https://rufus.ie/en/) 
 	- Head down to the downloads section, and select the download for
 		- `Standard Windows x64`. 
 		- If you somehow have a 32 bit system, click the x86 standard, but you probably don't in 2023. 
-- Install rufus, by clicking on the downloaded file. 
+5. Open rufus, by clicking on the downloaded file. 
 	- At the top of rufus, you'll have a selection called "device"
 		- Make sure this is your flash drive. In my case it says `PNY [8 GB]`
-		- The size should be a good indicator to make sure its your flash drive. 
+		- Double check the size to make sure its your flash drive. 
 	- Under boot selection, select `Disk or ISO image`
 	- To the right of that, click `select`
 	- Now, navigate to your `Downloads` folder and select the file we just downloaded
@@ -86,26 +87,26 @@ https://ubuntucinnamon.org/
 		- Select `ISO mode (reccommended)` and agree to the prompts. 
 	- You should now see a green progress bar as rufus creates our installer. 
 
-#### Booting from the flash drive
-- This will probably be the hardest part of this project for some inexperinced. 
-- Go ahead and navigate to google, and search for `hp elitebook boot menu key` , replacing hp elitebook with the model of Grandmas laptop. 
-- In my case, we'll go ahead and make sure the laptop is powered off, then press the power on key and spam `esc` or `f2` during boot, according to google
-- From the boot menu, select your flash drive using the arrow keys and press enter its. `UEFI PNY ubuntuinstaller` in my case. 
+<!-- Booting from the flash drive -->
+### Booting from the flash drive
 
-```
-sudo apt install git
-git clone https://github.com/cilynx/rtl88x2bu.git
-cd rtl88x2bu
-VER=$(sed -n 's/\PACKAGE_VERSION="\(.*\)"/\1/p' dkms.conf)
-sudo rsync -rvhP ./ /usr/src/rtl88x2bu-${VER}
-sudo dkms add -m rtl88x2bu -v ${VER}
-sudo dkms build -m rtl88x2bu -v ${VER}
-sudo dkms install -m rtl88x2bu -v ${VER}
-sudo modprobe 88x2bu
-sudo reboot
-```
+1. go to google, and search for `hp elitebook boot menu key` , replacing hp elitebook with the model of Grandmas laptop. 
+    -  eg. `dell xps boot menu key`
+2. Make sure the laptop is powered off, then press the power button
+3. While the laptop is turning on, `spam the boot menu key repeatdly` until the menu appears
+    -  in my case, i had to press `f2` repeatedly during boot
+4. From the boot menu, select your flash drive using the arrow keys and press enter its. `UEFI PNY ubuntuinstaller` in my case. 
 
-#### updates
+<!-- installing ubuntu -->
+### installing ubuntu
+
+-  select `install ubuntu`
+-  select `erase disk and install ubuntu`
+-  select `use LVM`
+-  
+
+<!-- Booting from the flash drive -->
+### Booting from the flash drive
 ```
 sudo apt update && sudo apt upgrade -y && sudo reboot
 ```
