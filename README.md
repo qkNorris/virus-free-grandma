@@ -103,19 +103,51 @@ https://ubuntucinnamon.org/
 -  select `install ubuntu`
 -  select `erase disk and install ubuntu`
 -  select `use LVM`
--  
+-  click next a few times, let it install. Once its done, remove the flash drive and reboot
 
-<!-- Booting from the flash drive -->
-### Booting from the flash drive
-```
-sudo apt update && sudo apt upgrade -y && sudo reboot
-```
-#### sudo 
-cd /etc/sudoers.d/
-touch standardusersudo
-id grandma
-nano standusersudo
+<!-- Configuring ubuntu -->
+# configuring ubuntu
+<!-- Configuring ubuntu -->
 
+After the OS is installed, go ahead and login with the password you created. 
+Then open the terminal by searching it in the application list, or by pressing `CTRL+ALT+T`
+Once the terminal is open, put in the following command and press `enter` to run it
+```
+sudo apt update && sudo apt upgrade -y && sudo snap refresh && sudo reboot
+```
+<!-- Downloading the files from this repo -->
+## Downloading the files from this repo
+
+Now that we're all up to date, go ahead and open the terminal again. We're going configure everything, and download a couple files from this repo that we'll need to setup the permissions and browser policies. 
+```
+sudo apt install git
+```
+```
+git clone https://github.com/qkNorris/virus-free-grandma.git
+```
+```
+cd virus-free-grandma
+```
+```
+ls
+```
+you should now see all the files we'll need going forward, like `grandmasudo` and `policies.json` 
+
+
+<!-- Creating grandmas account -->
+## Creating grandmas account
+
+Creating an account is fairly simple. 
+
+```
+sudo adduser grandma
+```
+supply a password for grandmas account when asked, then just press `enter` to skip the prompts for name, room number, and etc. 
+
+<!-- Configuring permissions (sudo) -->
+## configuring permissions (sudo)
+
+Sudo permissions are controlled by `sudoers`. I went with the following permissions, which will allow standard users to reboot, do updates, and fix some package issues. 
 ```
 %grandma ALL=(ALL) /sbin/reboot
 %grandma ALL=(ALL) /sbin/shutdown
@@ -123,116 +155,75 @@ nano standusersudo
 %grandma ALL=(ALL) /usr/bin/apt upgrade -y
 %grandma ALL=(ALL) /usr/bin/dpkg --configure -a
 ```  
+You'll notice that the syntax is `group` `target` `path-to-binary` `command`
+In this case, %grandma is actually the name of the group, which you can see by running `id grandma`
+Feel free to add to or modify this list as you see fit. To get the path of a binary, you can run `which`. eg. `which firefox`
 
-#### browser policies for Firefox
+To install the sudo permissions for the account, simply run the following command
 
 ```
-sudo snap refresh
+sudo cp grandmasudo /etc/sudoers.d/
 ```
 
+<!-- Configuring Firefox's enterprise browser policies -->
+## Configuring firefox enterprise browser policies
+
+Firefox allows system administrators to restict functions, and enforce settings in the browser to improve security in enterprise environments, though a file called policies.json
+For our use case, I chose a few sensible defaults based on my knowledge of what the end user will need and want, but feel free to tweak these. 
+For example, if you want to enable firefox accounts again, just change `DisableFirefoxAccounts` to `false` 
+
+The most important settings here are listed below
+  -  `uBlock Origin` is installed and cannot be removed
+  -  `extension installs` are blocked
+
+To intall my firefox browser policies, we'll just make a folder, then place the json file in it. 
+
 ```
-mkdir -p /etc/firefox/policies/
-cd /etc/firefox/policies/
-touch policies.json
+sudo mkdir -p /etc/firefox/policies/
+```
+```
+sudo cp policies.json /etc/firefox/policies/ 
+```
+
+
+<!-- Configuring Chromium's enterprise browser policies -->
+## Configuring Chromium's enterprise browser policies
+
+Similar to firefox, chromium also allows you to setup browser policies. The same file can also be read by regular google chrome, but we'll use chromium here. Its more or less the same thing, with less google integration. 
   
-nano policies.json  
+```
+sudo apt install chromium-browser
+```
+```
+sudo mkdir -p /etc/chromium-browser/policies/managed/
+```
+```
+sudo cp chromium_policy.json /etc/chromium-browser/policies/managed/ 
+```
+
+
+<!-- Desktop shortcuts for ease of use -->
+## Configuring desktop shortcuts
+
+For desktop shortcuts, I setup some simple "click-to-use" commands, as well as common applications like libreoffice. The command based desktop shortcuts look like this:
+```
+[Desktop Entry]
+Name=Run Updates
+Exec=bash -c 'sudo apt update && sudo apt upgrade -y ; read -p "\n press enter to close"
+Terminal=true
+Type=Application
+```
+
+To install the desktop shortcuts, run the following commands
+```
+sudo chmod +x *.desktop
+```
+```
+mkdir /home/grandma/Desktop/
+```
+```
+sudo cp *.desktop /home/grandma/Desktop/
 ```
 
 ```
-{
-  "policies": {
-    "DisablePocket": true,
-    "DisableFirefoxAccounts": true,
-    "DisableSafeMode": true,
-    "DisableTelemetry": true,
-    "OfferToSaveLoginsDefault": true,
-    "SearchEngines": {
-      "PreventInstalls": true
-    },
-    "SSLVersionMin": "tls1.1",
-    "ExtensionSettings": {
-      "*": {
-        "blocked_install_message": "User can not",
-        "install_sources": [
-          "about:addons",
-          "https://addons.mozilla.org/"
-        ],
-        "installation_mode": "blocked",
-        "allowed_types": [
-          "extension"
-        ]
-      },
-      "uBlock0@raymondhill.net": {
-        "installation_mode": "force_installed",
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock/origin/latest.xpi"
-      }
-    }
-  }
-}
-```
 
-#### Policies for chrome
-/etc/opt/chrome/policies/managed/test_policy.json  
-/etc/chromium-browser/policies/managed  
-  
-note: chromium and chrome have different policy paths.  
-  
-Note: extension ID's are in the chrome app store's url  
-  
-this code block is deprecated - linux browser policies are now deployed by puppet  
-  
-mkdir -p /etc/chromium-browser/policies/managed/ 
-cd /etc/chromium-browser/policies/managed/ 
-touch chomium_policy.json 
-nano chomium_policy.json 
-
-
-```
-{
-	"AllowOutdatedPlugins": 0,
-	"AutofillAddressEnabled": false,
-	"AutofillCreditCardEnabled": false,
-	"BackgroundModeEnabled": false,
-	"BrowserGuestModeEnabled": false,
-	"BrowserSignin": 0,
-	"ChromeCleanupEnabled": false,
-	"ChromeCleanupReportingEnabled": false,
-	"DefaultSearchProviderEnabled": true,
-	"DefaultSearchProviderName": "Google Encrypted",
-	"DefaultSearchProviderSearchURL": "https://www.google.com/search?q={searchTerms}",
-	"DownloadRestrictions": 1,
-	"ImportAutofillFormData": false,
-	"ImportSavedPasswords": false,
-	"MetricsReportingEnabled": false,
-	"NetworkPredictionOptions": 2,
-	"PromptForDownloadLocation": true,
-	"RemoteAccessHostFirewallTraversal": false,
-	"SSLVersionMin": "tls1.1",
-	"SafeBrowsingExtendedReportingEnabled": false,
-	"SafeBrowsingProtectionLevel": 1,
-	"SyncDisabled": true,
-	"URLBlocklist": [
-		"javascript://*"
-	],
-	"UrlKeyedAnonymizedDataCollectionEnabled": false,
-	"WebRtcEventLogCollectionAllowed": false,
-	"ExtensionSettings": {
-		"*": {
-			"blocked_install_message": "User does not have permission to install extensions",
-			"install_sources": [
-				"chrome://extensions/",
-				"https://chrome.google.com/"
-			],
-			"installation_mode": "blocked",
-			"allowed_types": [
-				"extension"
-			]
-		},
-		"cjpalhdlnbpafiamejdnhcphjbkeiagm": {
-			"toolbar_pin": "force_pinned",
-			"installation_mode": "force_installed",
-			"update_url": "https://clients2.google.com/service/update2/crx"
-		}
-	}
-}
-```
