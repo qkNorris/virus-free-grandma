@@ -1,3 +1,5 @@
+# How to build a 'virus proof' laptop for grandma
+
 - The goal of todays repo (and youtube video) is to explain the thought process when creating a safe, secure, and easy to use desktop evironment for those less familiar with modern online threats like malware, scammers, and ransomware. 
 	- Note that this is a quick and easy guide, designed to be followed by the one person in the family who became designated as "the tech savvy one" because they learned what those yellow, red, and white cables in the back of the VCR player did. 
 	- This is only the tip of the iceburg when it comes to online and computer security
@@ -6,14 +8,14 @@
 - **Legalese disclaimer:** always consult a professional, this comes as is and I am abolutely not responsible for anything that happens, now, later, or ever to any of the electons flowing through your device, as a result of the guidance here. 
 
 ### How we'll turn a laptop into a fortress
-- a strategic choice of operating system (ub22)
-- automated updates (cron)
-- enterprise browser policies (chrome, firefox)
-- wide spectrum malware and content blocking (ublock origin)
-- privledge restrictions (sudo)
-- secure, easy remote assistance (rustdesk?)
+- `a strategic choice of operating system` (ub22)
+- `automated updates` (cron)
+- `enterprise browser policies` (chrome, firefox)
+- `wide spectrum malware and content blocking` (ublock origin)
+- `privledge restrictions` (sudo)
+- `secure, easy remote assistance` (rustdesk?)
 
-### Scams
+#### Scams
 - Typically, scam based exploits are entirely user facing - vulnerable users invite them in to remotely access the system with programs like teamviewer, anydesk, and similar. 
 - Jim Browning's youtube channel has a lot of good examples of scam based attacks [Jim Browning - YouTube](https://www.youtube.com/@JimBrowning) 
 
