@@ -46,8 +46,7 @@ Heres my current setup, in case you want to mirror it. I'll provide alternatives
 - a 8GB usb flash drive
 - a computer you want to wipe, and setup for Grandma
 
-https://ubuntucinnamon.org/
-![[Pasted image 20230515174731.png]]
+![alt text](https://github.com/qkNorris/virus-free-grandma/blob/a90227aabd98cded49d066509181fd83f0648179/Pasted%20image%2020230515174731.png)
 
 #### Creating an ubuntu flash drive
 
