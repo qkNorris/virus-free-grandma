@@ -29,7 +29,8 @@
 
 [Desktop Operating System Market Share Worldwide | Statcounter Global Stats](https://gs.statcounter.com/os-market-share/desktop/worldwide)
 
-![[snapshot-os_combined-04-2023-desktop-00.png]]
+![operating system breakdown](https://github.com/qkNorris/virus-free-grandma/blob/2e5f88a74c97d2fd99e3bf9d5d40f569a3a27a72/snapshot-os_combined-04-2023-desktop-00.png)
+
 	- Due to the market share of operating systems, most scams, and malicious software is typically coded for the two largest Operating Systems - Windows and MacOS. 
 	- For this reason, one of the best ways a vulnerable user can avoid these issues is to simply run a less popular OS. Scam based call centers generally train their employees on how to exploit vulernable users on Windows and MacOS. Running a different operating system can prevent their script from going as planned, exposing the scam, or prevent access entirely if they don't have a binary for the target system. 
 	
