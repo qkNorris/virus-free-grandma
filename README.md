@@ -1,9 +1,9 @@
 # How to build a 'virus proof' laptop for grandma
 
 - The goal of todays repo (and youtube video) is to explain the thought process when creating a safe, secure, and easy to use desktop evironment for those less familiar with modern online threats like malware, scammers, and ransomware. 
-	- Note that this is a quick and easy guide, designed to be followed by the one person in the family who became designated as "the tech savvy one" because they learned what those yellow, red, and white cables in the back of the VCR player did. 
-	- This is only the tip of the iceburg when it comes to online and computer security
-	- The files contained in this repository are more than likely **not** going to receive future updates. There will be documentation links for future-dwellers to compare against the official docs and make adjustments as necessary 
+	- Note that this is a `quick and easy guide`, designed to be followed by the one person in the family who became designated as "the tech savvy one" because they learned what those yellow, red, and white cables in the back of the VCR player did. 
+	- This is only the `tip of the iceburg` when it comes to online safety and computer security
+	- The files contained in this repository are more than likely `not` going to receive future updates. There will be documentation links for future-dwellers to compare against the official docs and make adjustments as necessary 
 		- (ex: if the chrome options change, as they do every third update....)
 - **Legalese disclaimer:** always consult a professional, this comes as is and I am abolutely not responsible for anything that happens, now, later, or ever to any of the electons flowing through your device, as a result of the guidance here. 
 
@@ -14,6 +14,9 @@
 - `wide spectrum malware and content blocking` (ublock origin)
 - `privledge restrictions` (sudo)
 - `secure, easy remote assistance` (rustdesk?)
+
+<!-- Background Knowledge -->
+## Background Knowledge
 
 #### Scams
 - Typically, scam based exploits are entirely user facing - vulnerable users invite them in to remotely access the system with programs like teamviewer, anydesk, and similar. 
@@ -33,21 +36,26 @@
 
 ![operating system breakdown](https://github.com/qkNorris/virus-free-grandma/blob/2e5f88a74c97d2fd99e3bf9d5d40f569a3a27a72/snapshot-os_combined-04-2023-desktop-00.png)
 
-	- Due to the market share of operating systems, most scams, and malicious software is typically coded for the two largest Operating Systems - Windows and MacOS. 
-	- For this reason, one of the best ways a vulnerable user can avoid these issues is to simply run a less popular OS. Scam based call centers generally train their employees on how to exploit vulernable users on Windows and MacOS. Running a different operating system can prevent their script from going as planned, exposing the scam, or prevent access entirely if they don't have a binary for the target system. 
+- Due to the market share of operating systems, most scams, and malicious software is typically coded for the two largest Operating Systems - Windows and MacOS. 
+- For this reason, one of the best ways a vulnerable user can avoid these issues is to simply run a less popular OS. Scam based call centers generally train their employees on how to exploit vulernable users on Windows and MacOS. Running a different operating system can prevent their script from going as planned, exposing the scam, or prevent access entirely if they don't have a binary for the target system. 
 	
-Given the information we know about Operating System selection, I see two obvious choices
-- Linux
-- ChromeOS
+*Given the information we know about Operating System selection, I see two obvious choices*
+- `Linux`
+- `ChromeOS`
 
-For this tutorial we'll be targeting Linux.
-- Ubuntu 22.04 Cinnamon to be precise. 
+*For this tutorial we'll be targeting Linux, due to my personal familiarity over chromeOS*
+- `Ubuntu 22.04 Cinnamon to be precise.`
 
-#### Required equipment
+<!-- Prerequisites -->
+## Prerequisites
+
 Heres my current setup, in case you want to mirror it. I'll provide alternatives too.
 - an already setup windows computer
 - a 8GB usb flash drive
 - a computer you want to wipe, and setup for Grandma
+
+<!-- GETTING STARTED -->
+## Getting Started
 
 https://ubuntucinnamon.org/ 
 ![alt text](https://github.com/qkNorris/virus-free-grandma/blob/a90227aabd98cded49d066509181fd83f0648179/Pasted%20image%2020230515174731.png)
