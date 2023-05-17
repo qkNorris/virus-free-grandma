@@ -25,7 +25,7 @@
 #### Ransomware
 - The most common entry methods for ransomware are the two categories listed above. They can be executed by a user, or installed by a scammer with remote access. 
 
-## Choosting an operating system
+## Choosing an operating system
 
 [Desktop Operating System Market Share Worldwide | Statcounter Global Stats](https://gs.statcounter.com/os-market-share/desktop/worldwide)
 
