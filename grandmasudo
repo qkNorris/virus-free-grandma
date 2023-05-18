@@ -1,0 +1,5 @@
+%grandma ALL=(ALL) /sbin/reboot
+%grandma ALL=(ALL) /sbin/shutdown
+%grandma ALL=(ALL) /usr/bin/apt update
+%grandma ALL=(ALL) /usr/bin/apt upgrade -y
+%grandma ALL=(ALL) /usr/bin/dpkg --configure -a
