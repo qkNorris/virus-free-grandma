@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Run Updates
+Exec=bash -c 'sudo apt update && sudo apt upgrade -y ; read -p "\n press enter to close"'
+Terminal=true
+Type=Application
