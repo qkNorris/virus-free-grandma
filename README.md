@@ -115,6 +115,23 @@ Once the terminal is open, put in the following command and press `enter` to run
 ```
 sudo apt update && sudo apt upgrade -y && sudo snap refresh && sudo reboot
 ```
+<!-- setting up automatic updates -->
+# setting up automatic updates
+
+In order for us to not have to worry about updates getting applied, we can automate them with `cron`
+There are plenty of other ways to do this as well, I just like this one. 
+go ahead and run the following, to edit the `crontab` 
+```
+sudo crontab -e
+```
+It should prompt you to choose an editor, press `"1"` to select nano
+then use the arrow keys to navigate to the very bottom of the file, and insert the following on a new line
+```
+05 16 * * * apt update && apt upgrade -y
+```
+this will execute updates every day at 4:05PM. Is that too often? ....probably. 
+You can customize the timing by learning the magic of a cron calulator [https://crontab.guru/#05_16_*_*_*](https://crontab.guru/#05_16_*_*_*)
+
 <!-- Downloading the files from this repo -->
 ## Downloading the files from this repo
 
@@ -201,8 +218,27 @@ sudo mkdir -p /etc/chromium-browser/policies/managed/
 sudo cp chromium_policy.json /etc/chromium-browser/policies/managed/ 
 ```
 
+<!-- Remote assistance -->
+## Remote assistance
 
-<!-- Desktop shortcuts for ease of use -->
+For remote assistance, we'll be using Rustdesk. 
+There are plenty of more complex, more secure remote assitance applications out there but I chose rustdesk for the following reasons
+  -  Open source
+  -  Remotes into the users existing session
+  -  No firewall modifications, port forwarding, or other configuraion necessary
+  -  Super simple for the end user to use (just click on the shortcut)
+  -  
+To download the latest version of rustdesk, navigate to [https://rustdesk.com/](https://rustdesk.com) in the browser
+You should see that the download says `ubuntu` underneath it. Click the download button
+
+Once its downloaded, run the following in your terminal to install it
+```
+sudo dpkg -i ~/Downloads/rustdesk-X.X.X.deb
+```
+The command has to include the version number, so after typing the word download, type in `rust` and hit the `TAB` key once (or twice?). It should autofill the command with rustdesks version number you just downloaded. 
+
+
+<!-- Configuring desktop shortcuts -->
 ## Configuring desktop shortcuts
 
 For desktop shortcuts, I setup some simple "click-to-use" commands, as well as common applications like libreoffice. The command based desktop shortcuts look like this:
@@ -225,5 +261,27 @@ mkdir /home/grandma/Desktop/
 sudo cp *.desktop /home/grandma/Desktop/
 ```
 
-```
+<!-- Customizing the desktop -->
+## Customizing the desktop
+
+Go ahead and logout, then login as the new user account you created. You should see all the desktop icons we setup. 
+You can now customize the desktop however you see fit, personally I changed the following
+  -  right clicked the "menu" in the lower left and changed it to say "start" instead, and clicked "custom icon" because it looks cleaner with cinnamons white logo. 
+  -  right clicked the taskbar in the center, and under "panel settings" set the right zone to have much larger icon sizes
+  -  actually... did the same thing for the left and center zones as well. Larger icons are better for this use case. 
+  -  went to system settings -> font selection and changed all the fonts from 11 -> 12 pt font
+  -  opened RustDesk and set a custom password
+
+
+<!-- You're done! -->
+## You're done!
+
+Hope that wasen't too bad. All in all, following these steps should take about 1-2 hours, but it took me about 30 hours to make them (mostly the browser policies....)
+enjoy! 
+
+If you have any questions, shoot me a tweet or drop a comment on the youtube video. Happy to help! 
+-Connor
+
+https://twitter.com/qkNorris 
+https://www.youtube.com/qknorris 
 
