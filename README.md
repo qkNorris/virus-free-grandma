@@ -236,10 +236,14 @@ You should see that the download says `ubuntu` underneath it. Click the download
 
 Once its downloaded, run the following in your terminal to install it
 ```
-sudo dpkg -i ~/Downloads/rustdesk-X.X.X.deb
+sudo apt install ~/Downloads/rustdesk-X.X.X.deb
 ```
 The command has to include the version number, so after typing the word download, type in `rust` and hit the `TAB` key once (or twice?). It should autofill the command with rustdesks version number you just downloaded. 
-
+```
+update: rustdesk seems to have a touch of difficulty installing, after running the apt command you (may) need to run these as well
+sudo apt --fix-broken install
+sudo dpkg -i ~/Downloads/rustdesk-X.X.X.deb
+```
 
 <!-- Configuring desktop shortcuts -->
 ## Configuring desktop shortcuts
