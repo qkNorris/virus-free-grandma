@@ -129,6 +129,9 @@ then use the arrow keys to navigate to the very bottom of the file, and insert t
 ```
 05 16 * * * apt update && apt upgrade -y
 ```
+
+Once you've inserted the text, press `CTRL+O` to write, then `CTRL+X` to exit
+
 this will execute updates every day at 4:05PM. Is that too often? ....probably. 
 You can customize the timing by learning the magic of a cron calulator [https://crontab.guru/#05_16_*_*_*](https://crontab.guru/#05_16_*_*_*)
 
